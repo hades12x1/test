@@ -1,61 +1,101 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <style>
-        h1{
-            color: brown;
-        }
-        .quotation {
-            width: 100%;
-        }
-        .quotation, .quotation th, .quotation td {
-            border: 1px solid brown;
-            border-collapse: collapse;
-        }
-        .quotation th {
-            background-color: brown;
-            color: white;
-        }
-    </style>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <style>
+       body {
+           box-sizing: border-box;
+       }
+
+       .logo {
+           width: 50%;
+           margin: auto;
+       }
+
+       text-float-right {
+           float: right;
+       }
+       
+       .text-center {
+           text-align: center;
+       }
+
+       h1 {
+           color: brown;
+       }
+
+       .quotation {
+           width: 100%;
+       }
+
+       .quotation, .quotation th, .quotation td {
+           border: 1px solid brown;
+           border-collapse: collapse;
+       }
+
+       .quotation th {
+           background-color: brown;
+           color: white;
+       }
+   
+   </style>
 </head>
 <body>
-<h1>Quotation</h1>
-<table>
-    <tr>
-        <th>Customer</th>
-    </tr>
-    <tr>
-        <td th:text="'Company Name: ' + ${customer.companyName}"></td>
-    </tr>
-    <tr>
-        <td th:text="'Contact Name: ' + ${customer.contactName}"></td>
-    </tr>
-    <tr>
-        <td th:text="'Address: ' + ${customer.address}"></td>
-    </tr>
-    <tr>
-        <td th:text="'Email: ' + ${customer.email}"></td>
-    </tr>
-    <tr>
-        <td th:text="'Phone: ' + ${customer.phone}"></td>
-    </tr>
+<table class="logo">
+   <tr>
+      <td class="text-center">
+         <img th:src="@{https://portal.ubot.vn/content/images/email/logo_ubot.png}"/>
+      </td>
+      <td class="text-center">
+         <img th:src="@{https://portal.ubot.vn/content/images/email/logo_fpt.png}"/>
+      </td>
+   </tr>
 </table>
-<br />
+<div class="text-float-right">
+   <p>Mẫu số: 1</p>
+   <p>Ký hiệu: C22TCR</p>
+</div>
+<div class="text-center">
+   <h1>HÓA ĐƠN GIÁ TRỊ GIA TĂNG</h1>
+   <span>Ngày 13 tháng 10 năm 2022</span>
+   <span>MCCQT: 00234A43A635E5452E851C7F157271DEF2</span>
+</div>
+<table>
+   <tr>
+      <th>Customer</th>
+   </tr>
+   <tr>
+      <td th:text="'Company Name: ' + ${customer.companyName}"></td>
+   </tr>
+   <tr>
+      <td th:text="'Contact Name: ' + ${customer.contactName}"></td>
+   </tr>
+   <tr>
+      <td th:text="'Address: ' + ${customer.address}"></td>
+   </tr>
+   <tr>
+      <td th:text="'Email: ' + ${customer.email}"></td>
+   </tr>
+   <tr>
+      <td th:text="'Phone: ' + ${customer.phone}"></td>
+   </tr>
+</table>
+<br/>
 <table class="quotation">
-    <tr>
-        <th>Item #</th>
-        <th>Description</th>
-        <th>Quantity</th>
-        <th>Unit Price</th>
-        <th>Total</th>
-    </tr>
-    <tr th:each="item, iterStat: ${quoteItems}">
-        <td th:text="${iterStat.index + 1}"></td>
-        <td th:text="${item.description}"></td>
-        <td th:text="${item.quantity}"></td>
-        <td th:text="${item.unitPrice}"></td>
-        <td th:text="${item.total}"></td>
-    </tr>
+   <tr>
+      <th>Item #</th>
+      <th>Description</th>
+      <th>Quantity</th>
+      <th>Unit Price</th>
+      <th>Total</th>
+   </tr>
+   <tr th:each="item, iterStat: ${quoteItems}">
+      <td th:text="${iterStat.index + 1}"></td>
+      <td th:text="${item.description}"></td>
+      <td th:text="${item.quantity}"></td>
+      <td th:text="${item.unitPrice}"></td>
+      <td th:text="${item.total}"></td>
+   </tr>
 </table>
 </body>
 </html>
